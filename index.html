@@ -80,7 +80,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <img src="./static/images/icon.png" style="height: 1.2em; vertical-align: middle; margin-right: 0.5em;">
+            <img src="./static/images/icon.png" style="height: 1.8em; vertical-align: middle; margin-right: 0.5em;">
             PhysRig: Differentiable Physics-Based Skinning and Rigging Framework for Realistic Articulated Object Modeling
           </h1>
           <div class="is-size-5 publication-authors">
@@ -165,7 +165,9 @@
         <figure class="image">
           <img src="./static/videos/fig1.png" alt="Teaser Image">
         </figure>
-        <p class="is-size-5 mt-2">PhysRig Teaser</p>
+        <p class="is-size-5 mt-2">Figure 1. PhysRig is a differentiable physics-based skinning approach that models objects as soft-body volumes driven by embedded
+driving points, enabling realistic deformations and capturing complex dynamics across diverse topologies and motions—from humanoids to
+dinosaurs and flying creatures.</p>
       </div>
     </div>
 
@@ -188,7 +190,10 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <img src="./static/videos/iccv_fig2.png" alt="Result 1">
-        <p class="is-size-5 mt-2">Result Figure 1</p>
+        <p class="is-size-5 mt-2">Figure 2. Overview of PhysRig. Given a 3D object, we first compute coarse skinning weights, which initialize embedded driving points
+for local deformation control. These points, assigned velocities, are linked to an elastic 3D volume with material parameters governing
+deformation. The differentiable physics-based skinning module generates natural deformations, optimizing velocities and material properties
+via backward propagation. Finally, multi-view animations illustrate physically plausible shape deformations over time.</p>
       </div>
     </div>
   </div>
@@ -199,8 +204,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="./static/videos/fig4.png" alt="Result 2">
-        <p class="is-size-5 mt-2">Result Figure 2</p>
+        <img src="./static/videos/fig5.png" alt="Result 2">
+        <p class="is-size-5 mt-2">Figure 3. PhysRig enables pose transfer for generated objects</p>
       </div>
     </div>
   </div>
@@ -211,8 +216,9 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="./static/videos/iccv-fig8.png" alt="Result 3">
-        <p class="is-size-5 mt-2">Result Figure 3</p>
+        <img src="./static/videos/iccv-fig4.png" alt="Result 3">
+        <p class="is-size-5 mt-2">Figure 4. Animation results from the PhysRig approach. These results are obtained from the inverse skinning problem by optimizing
+material properties and driving point velocities to minimize the deviation from the ground truth mesh sequence.</p>
       </div>
     </div>
   </div>
@@ -223,8 +229,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="./static/videos/iccv-fig4.png" alt="Result 4">
-        <p class="is-size-5 mt-2">Result Figure 4</p>
+        <img src="./static/videos/fig4.png" alt="Result 4">
+        <p class="is-size-5 mt-2">Figure 5. Comparison of the learned material properties with ground truth using our method.</p>
       </div>
     </div>
   </div>
@@ -235,8 +241,20 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="./static/videos/iccv-fig5.png" alt="Result 5">
-        <p class="is-size-5 mt-2">Result Figure 5</p>
+        <img src="./static/videos/fig_a1.png" alt="Result 5">
+        <p class="is-size-5 mt-2">Figure 6. Qualitative Comparisons of PhysRig and neural linear blend skinning using ground truth skinning weights as initialization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Result Image 5 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="./static/videos/iccv-fig8.png" alt="Result 5">
+        <p class="is-size-5 mt-2">Figure 7. Visualization of Material Prototype Centers.</p>
       </div>
     </div>
   </div>
