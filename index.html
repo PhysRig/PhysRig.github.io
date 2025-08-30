@@ -61,6 +61,88 @@
       padding: 6px 12px;
       border-radius: 4px;
     }
+    /* 1) 英雄区标题在窄屏更紧凑 */
+    @media (max-width: 768px) {
+      .publication-title {
+        font-size: 1.75rem !important; /* Bulma 会有优先级，这里强制 */
+        line-height: 1.25 !important;
+      }
+    }
+    
+    /* 2) 作者与单位区距、字号微调 */
+    .publication-authors {
+      margin-bottom: 0.35rem; /* 稍微压缩 */
+    }
+    .publication-authors .author-block {
+      margin: 0 0.25rem;
+    }
+    
+    /* 3) 机构图标区域：更规整、带分隔线 */
+    .affiliation-wrap {
+      margin-top: 6px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      .affiliation-wrap { border-top-color: rgba(255,255,255,0.08); }
+    }
+    
+    .inst-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;              /* 稍微收紧 */
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .inst-logos a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .inst-logos img {
+      height: 42px;           /* 比 48 略小，更内敛 */
+      max-width: 180px;
+      object-fit: contain;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      image-rendering: auto;
+    }
+    .inst-logos a:hover img { transform: translateY(-1.5px); }
+    
+    /* Illinois 白字在深色底上可见，内边距更轻 */
+    .inst-logos .illinois-bg {
+      background-color: #13294B;
+      padding: 4px 10px;      /* 比原来更轻盈 */
+      border-radius: 6px;     /* 更现代一点的圆角 */
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.03) inset;
+    }
+    @media (prefers-color-scheme: dark) {
+      .inst-logos .illinois-bg {
+        background-color: #19365e; /* 暗色模式轻微提亮，避免太暗 */
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset;
+      }
+    }
+    
+    /* 4) 统一图注样式与间距 */
+    .figure-caption,
+    .columns .is-size-6.has-text-grey {
+      color: #6b7280 !important;      /* 稍浅的灰 */
+      line-height: 1.45;
+      margin-top: 0.45rem !important; /* 统一上间距 */
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .figure-caption strong,
+    .columns .is-size-6.has-text-grey span:first-child {
+      color: #4b5563 !important;
+      font-weight: 600;
+    }
+    
+    /* 5) 全局小留白微调（可选） */
+    .section .title.is-4 { margin-bottom: 0.6rem; }
+    .box.mb-5 { margin-bottom: 2.2rem !important; }
+
   </style>
 </head>
 <body>
