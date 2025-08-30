@@ -7,7 +7,6 @@
   <meta name="keywords" content="Rigging, Physic Simulation, Differentiable Simulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PhysRig: Differentiable Physics-Based Skinning and Rigging Framework for Realistic Articulated Object Modeling.</title>
-
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -16,17 +15,16 @@
     gtag('js', new Date());
     gtag('config', 'G-PYVRSFMDRL');
   </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/icon.png">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -39,7 +37,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;              /* logo 之间的间距 */
+      gap: 40px;              /* 两个 logo 之间的间距 */
       margin-top: 12px;
       flex-wrap: wrap;
     }
@@ -57,7 +55,7 @@
     .inst-logos a:hover img {
       transform: translateY(-2px);
     }
-    /* 给 Illinois 白色字 logo 蓝底 */
+    /* Illinois 白字在深色底上可见 */
     .inst-logos .illinois-bg {
       background-color: #13294B;   /* UIUC 蓝色 */
       padding: 6px 12px;
@@ -84,12 +82,17 @@
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">More Research</a>
+        <a class="navbar-link">
+          More Research
+        </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://magicpose4d.github.io/">MagicPose4D</a>
+          <a class="navbar-item" href="https://magicpose4d.github.io/">
+            MagicPose4D
+          </a>
         </div>
       </div>
     </div>
+
   </div>
 </nav>
 
@@ -118,7 +121,7 @@
               <a href="https://vision.ai.illinois.edu/narendra-ahuja/">Narendra Ahuja</a><sup>1</sup>
             </span>
           </div>
-
+          
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign,</span>
             <span class="author-block"><sup>2</sup>Stability AI</span>
@@ -133,54 +136,244 @@
               <img src="./static/images/stability_logo.jpg" alt="Stability AI">
             </a>
           </div>
-
+          
           <p class="has-text-centered is-size-6 mt-2"><sup>*</sup>Equal contribution</p>
 
           <p class="has-text-centered has-text-weight-semibold is-size-5 mt-2">
-            ✅ Accepted to <strong>International Conference on Computer Vision (ICCV) 2025</strong>
+            Accepted to <strong>International Conference on Computer Vision (ICCV) 2025</strong>
           </p>
+
 
           <div class="column has-text-centered">
             <div class="publication-links">
+              <!-- PDF Link. -->
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2506.20936"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2506.20936"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
                   <span>arXiv</span>
                 </a>
               </span>
+              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/haoz19/PhysRig"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
                   <span>Code</span>
-                </a>
+                  </a>
               </span>
+              <!-- Dataset Link. -->
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2506.20936"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
                   <span>Data</span>
-                </a>
-              </span>
+                  </a>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 下面你的 Abstract, Figures, BibTeX, Footer 等内容保持不变 -->
-<!-- 我这里省略了，因为没有改动，你只要保留原来那部分即可 -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- 🎯 Highlighted Message -->
+    <div class="box has-background-light has-text-centered mb-5" style="border-left: 5px solid #3273dc;">
+      <h2 class="title is-4 has-text-weight-bold has-text-link">
+        🚀 Still using LBS for rigging?
+      </h2>
+      <h3 class="subtitle is-5 has-text-grey-dark">
+        Why not try a pure physics simulator instead?
+      </h3>
+      <p class="is-size-6 px-5">
+        Traditional <strong>Linear Blend Skinning (LBS)</strong> often fails under complex deformations and joint constraints.<br>
+        <strong>PhysRig</strong> introduces a fully physics-based rigging solution with:
+        <ul class="has-text-left mt-3" style="display: inline-block; text-align: left;">
+          <li>✅ Elastic material modeling for soft-body behaviors</li>
+          <li>✅ Constraint-aware dynamics that preserve physical plausibility</li>
+          <li>✅ Nonlinear motion responses across articulated topologies</li>
+        </ul>
+        <br>
+        All powered by a <span class="has-text-weight-semibold" style="color:#00c48c;">differentiable physics simulator</span>.
+      </p>
+    </div>
+
+    <!-- 🦖 Teaser Image -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <figure class="image" style="margin: 0;">
+          <img src="./static/videos/fig1.png" alt="Teaser Image" style="width: 100%; height: auto; margin-bottom: 0.2rem;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="margin-top: 0rem; line-height: 1.4; max-width: 90%; margin-left: auto; margin-right: auto;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 1.</span>
+          <span>PhysRig models articulated objects as soft-body volumes driven by embedded control points, enabling realistic deformations and dynamics across diverse topologies—from humanoids to dinosaurs.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <div class="content is-size-6">
+        <p>
+          Skinning and rigging are fundamental components in animation, articulated object reconstruction, motion transfer, and 4D generation.
+          Existing approaches predominantly rely on Linear Blend Skinning (LBS), due to its simplicity and differentiability. However, LBS introduces artifacts such as volume loss and unnatural deformations, and it fails to model elastic materials like soft tissues, fur, and flexible appendages (e.g., elephant trunks, ears, and fatty tissues).
+        </p>
+        <p>
+          In this work, we propose <strong>PhysRig</strong>: a differentiable physics-based skinning and rigging framework that overcomes these limitations by embedding the rigid skeleton into a volumetric representation (e.g., a tetrahedral mesh), which is simulated as a deformable soft-body structure driven by the animated skeleton.
+          Our method leverages continuum mechanics and discretizes the object as particles embedded in an Eulerian background grid to ensure differentiability with respect to both material properties and skeletal motion.
+        </p>
+        <p>
+          Additionally, we introduce <strong>material prototypes</strong>, significantly reducing the learning space while maintaining high expressiveness. To evaluate our framework, we construct a comprehensive synthetic dataset using meshes from Objaverse, The Amazing Animals Zoo, and Mixamo, covering diverse object categories and motion patterns.
+          Our method consistently outperforms traditional LBS-based approaches, generating more realistic and physically plausible results.
+          Furthermore, we demonstrate the applicability of our framework in the pose transfer task, highlighting its versatility for articulated object modeling.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="notification is-success is-light has-text-centered mt-6 is-size-5 has-text-weight-semibold">
+      ✅ The following results are <span class="has-text-weight-bold has-text-link-dark">LBS-free</span> and 
+      <span class="has-text-weight-bold has-text-success">100% driven by a differentiable physics simulator</span>.
+    </div>
+
+
+  </div>
+
+
+    <!-- Demo Video -->
+    <div class="columns is-centered has-text-centered mt-6">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">
+          ▶️ Watch <span class="has-text-link has-text-weight-semibold">PhysRig</span> in Action
+        </h2>
+        <video controls autoplay muted loop playsinline 
+               style="max-width: 960px; width: 100%; height: auto; border-radius: 8px;">
+          <source src="./static/videos/PhysRig.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Figure 2 -->
+    <div class="columns is-centered has-text-centered mt-5">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="./static/images/fig01.png" alt="Figure 2" style="width: 100%; height: auto;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="line-height: 1.5; margin-top: 0.5rem;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 2.</span>
+          <span>Overview of PhysRig. Given a 3D object, we first compute coarse skinning weights, which initialize embedded driving points for local deformation control. These points, assigned velocities, are linked to an elastic 3D volume with material parameters governing deformation. The differentiable physics-based skinning module generates natural deformations, optimizing velocities and material properties via backward propagation. Finally, multi-view animations illustrate physically plausible shape deformations over time.</span>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Figure 3 -->
+    <div class="columns is-centered has-text-centered mt-5">
+      <div class="column is-half">
+        <figure class="image">
+          <img src="./static/videos/iccv_fig5.png" alt="Figure 3" style="width: 100%; height: auto;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="line-height: 1.5; margin-top: 0.5rem;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 3.</span>
+          <span>PhysRig enables pose transfer for generated objects.</span>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Figure 4 -->
+    <div class="columns is-centered has-text-centered mt-5">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="./static/videos/iccv-fig4.png" alt="Figure 4" style="width: 100%; height: auto;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="line-height: 1.5; margin-top: 0.5rem;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 4.</span>
+          <span>Animation results from the PhysRig approach. These results are obtained from the inverse skinning problem by optimizing material properties and driving point velocities to minimize the deviation from the ground truth mesh sequence.</span>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Figure 5 -->
+    <div class="columns is-centered has-text-centered mt-5">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="./static/videos/fig4.png" alt="Figure 5" style="width: 100%; height: auto;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="line-height: 1.5; margin-top: 0.5rem;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 5.</span>
+          <span>Comparison of the learned material properties with ground truth using our method.</span>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Figure 6 -->
+    <div class="columns is-centered has-text-centered mt-5">
+      <div class="column is-four-fifths">
+        <figure class="image">
+          <img src="./static/videos/fig_a1.png" alt="Figure 6" style="width: 100%; height: auto;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="line-height: 1.5; margin-top: 0.5rem;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 6.</span>
+          <span>Qualitative comparisons of PhysRig and neural linear blend skinning using ground truth skinning weights as initialization.</span>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Figure 7 -->
+    <div class="columns is-centered has-text-centered mt-5">
+      <div class="column is-four-fifths">
+        <figure class="image">
+          <img src="./static/videos/iccv-fig8.png" alt="Figure 7" style="width: 100%; height: auto;">
+        </figure>
+        <p class="is-size-6 has-text-grey" style="line-height: 1.5; margin-top: 0.5rem;">
+          <span style="font-weight: 600; color: #4a4a4a;">Figure 7.</span>
+          <span>Visualization of material prototype centers learned by PhysRig.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{zhang2025physrigdifferentiablephysicsbasedskinning,
+      title={PhysRig: Differentiable Physics-Based Skinning and Rigging Framework for Realistic Articulated Object Modeling}, 
+      author={Hao Zhang and Haolan Xu and Chun Feng and Varun Jampani and Narendra Ahuja},
+      year={2025},
+      eprint={2506.20936},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.20936}, 
+}</code></pre>
+  </div>
+</section>
+
 
 <footer class="footer">
   <div class="container">
