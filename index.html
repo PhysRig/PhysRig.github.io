@@ -33,15 +33,15 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
-  <!-- ✅ Minimal styles for institution icons -->
+  <!-- ✅ Styles for institution icons -->
   <style>
     .inst-logos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 18px;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      justify-items: center;
+      gap: 40px;              /* logo 之间的间距 */
       margin-top: 12px;
+      flex-wrap: wrap;
     }
     .inst-logos a {
       display: inline-flex;
@@ -52,14 +52,16 @@
       height: 48px;
       max-width: 200px;
       object-fit: contain;
-      filter: grayscale(100%);
-      opacity: 0.9;
-      transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
     .inst-logos a:hover img {
-      filter: none;
-      opacity: 1;
       transform: translateY(-2px);
+    }
+    /* 给 Illinois 白色字 logo 蓝底 */
+    .inst-logos .illinois-bg {
+      background-color: #13294B;   /* UIUC 蓝色 */
+      padding: 6px 12px;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -125,7 +127,7 @@
           <!-- ✅ Institution icons -->
           <div class="inst-logos">
             <a href="https://illinois.edu" target="_blank" rel="noopener" aria-label="UIUC">
-              <img src="./static/images/illinois_primary_wordmark_reversed_orange.svg" alt="University of Illinois Urbana-Champaign">
+              <img class="illinois-bg" src="./static/images/illinois_primary_wordmark_reversed_orange.svg" alt="University of Illinois Urbana-Champaign">
             </a>
             <a href="https://stability.ai" target="_blank" rel="noopener" aria-label="Stability AI">
               <img src="./static/images/stability_logo.jpg" alt="Stability AI">
@@ -177,7 +179,8 @@
   </div>
 </section>
 
-<!-- 下面内容保持不变，省略 ... -->
+<!-- 下面你的 Abstract, Figures, BibTeX, Footer 等内容保持不变 -->
+<!-- 我这里省略了，因为没有改动，你只要保留原来那部分即可 -->
 
 <footer class="footer">
   <div class="container">
