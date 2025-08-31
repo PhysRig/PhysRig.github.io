@@ -31,150 +31,612 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
-  <!-- ✅ Styles for institution icons -->
+  <!-- ✨ Clean & Minimal Design -->
   <style>
+    /* Clean design system */
+    :root {
+      --primary-color: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --accent-color: #10b981;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --border-color: #e5e7eb;
+      --border-light: #f3f4f6;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    /* Clean white background */
+    body {
+      background: #ffffff;
+      color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding-top: 3.5rem;
+    }
+
+    /* Minimal navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar-brand .navbar-item {
+      font-weight: 600;
+      color: var(--text-primary) !important;
+    }
+
+    .navbar-item {
+      color: var(--text-secondary) !important;
+      transition: all 0.2s ease;
+    }
+
+    .navbar-item:hover {
+      color: var(--primary-color) !important;
+      background: var(--border-light) !important;
+    }
+
+    .navbar-burger {
+      color: var(--text-primary) !important;
+    }
+
+    .navbar-burger:hover {
+      background: var(--border-light) !important;
+    }
+
+    /* Clean hero section */
+    .hero {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 3rem 0;
+    }
+
+    .publication-title {
+      color: var(--text-primary);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 2rem !important;
+    }
+
+    .publication-title img {
+      filter: none;
+    }
+
+    /* Author styling */
+    .publication-authors {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .publication-authors a {
+      color: var(--primary-color) !important;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .publication-authors a:hover {
+      color: var(--primary-dark) !important;
+    }
+
+    /* Institution logos - minimal style */
+    .affiliation-wrap {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
     .inst-logos {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;              /* 两个 logo 之间的间距 */
-      margin-top: 12px;
+      gap: 2rem;
+      margin-top: 1rem;
       flex-wrap: wrap;
     }
+
     .inst-logos a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.2s ease;
     }
-    .inst-logos img {
-      height: 48px;
-      max-width: 200px;
-      object-fit: contain;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .inst-logos a:hover img {
+
+    .inst-logos a:hover {
       transform: translateY(-2px);
     }
-    /* Illinois 白字在深色底上可见 */
-    .inst-logos .illinois-bg {
-      background-color: #13294B;   /* UIUC 蓝色 */
-      padding: 6px 12px;
-      border-radius: 4px;
-    }
-    /* 1) 英雄区标题在窄屏更紧凑 */
-    @media (max-width: 768px) {
-      .publication-title {
-        font-size: 1.75rem !important; /* Bulma 会有优先级，这里强制 */
-        line-height: 1.25 !important;
-      }
-    }
-    
-    /* 2) 作者与单位区距、字号微调 */
-    .publication-authors {
-      margin-bottom: 0.35rem; /* 稍微压缩 */
-    }
-    .publication-authors .author-block {
-      margin: 0 0.25rem;
-    }
-    
-    /* 3) 机构图标区域：更规整、带分隔线 */
-    .affiliation-wrap {
-      margin-top: 6px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-    @media (prefers-color-scheme: dark) {
-      .affiliation-wrap { border-top-color: rgba(255,255,255,0.08); }
-    }
-    
-    .inst-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 28px;              /* 稍微收紧 */
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .inst-logos a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
+
     .inst-logos img {
-      height: 42px;           /* 比 48 略小，更内敛 */
+      height: 48px;
       max-width: 180px;
       object-fit: contain;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-      image-rendering: auto;
     }
-    .inst-logos a:hover img { transform: translateY(-1.5px); }
-    
-    /* Illinois 白字在深色底上可见，内边距更轻 */
+
     .inst-logos .illinois-bg {
       background-color: #13294B;
-      padding: 4px 10px;      /* 比原来更轻盈 */
-      border-radius: 6px;     /* 更现代一点的圆角 */
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.03) inset;
+      padding: 0.5rem 0.75rem;
+      border: none;
     }
-    @media (prefers-color-scheme: dark) {
-      .inst-logos .illinois-bg {
-        background-color: #19365e; /* 暗色模式轻微提亮，避免太暗 */
-        box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset;
-      }
+
+    /* Clean button styling */
+    .publication-links .button {
+      background: #374151 !important;
+      border: none !important;
+      color: white !important;
+      margin: 0.25rem;
+      font-weight: 500;
+      border-radius: var(--radius);
+      transition: all 0.2s ease;
     }
-    
-    /* 4) 统一图注样式与间距 */
-    .figure-caption,
-    .columns .is-size-6.has-text-grey {
-      color: #6b7280 !important;      /* 稍浅的灰 */
-      line-height: 1.45;
-      margin-top: 0.45rem !important; /* 统一上间距 */
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+
+    .publication-links .button:hover {
+      background: #1f2937 !important;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
     }
-    .figure-caption strong,
-    .columns .is-size-6.has-text-grey span:first-child {
-      color: #4b5563 !important;
+
+    /* Conference badge with ICCV logo */
+    .conference-badge-link {
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .conference-badge-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .conference-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .conference-badge-link:hover .conference-badge {
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .conference-logo {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .conference-text {
+      text-align: left;
+    }
+
+    .conference-status {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .conference-name {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* Legacy conference badge (keep for compatibility) */
+    .has-text-weight-semibold.is-size-5 {
+      background: #ffffff;
+      color: var(--text-primary) !important;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      display: inline-block;
+      font-weight: 600;
+      margin-top: 1rem !important;
+    }
+
+    /* Clean message box */
+    .box.has-background-light {
+      background: #ffffff !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-lg) !important;
+      box-shadow: var(--shadow-sm) !important;
+      padding: 2rem;
+    }
+
+    .box.has-background-light .title {
+      color: var(--text-primary) !important;
+      margin-bottom: 1rem;
+    }
+
+    .box.has-background-light .subtitle {
+      color: var(--text-secondary) !important;
+    }
+
+    .box.has-background-light ul {
+      background: var(--border-light);
+      padding: 1rem;
+      border-radius: var(--radius);
+      margin: 1rem 0;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    /* Clean sections */
+    .section {
+      background: #ffffff;
+      margin: 0;
+      box-shadow: none;
+      border: none;
+      padding: 3rem 0;
+    }
+
+    .section:nth-child(even) {
+      background: #fafafa;
+    }
+
+    /* Clean figure styling */
+    .columns figure.image {
+      background: white;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .columns figure.image:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .columns figure.image img {
+      border-radius: var(--radius);
+    }
+
+    /* Teaser figure (Figure 1) without border */
+    .teaser-figure {
+      background: none !important;
+      padding: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .teaser-figure:hover {
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    .teaser-figure img {
+      border-radius: 0 !important;
+    }
+
+    /* Clean figure captions */
+    .is-size-6.has-text-grey {
+      color: var(--text-secondary) !important;
+      line-height: 1.6;
+      margin-top: 1rem !important;
+      padding: 1rem;
+      background: var(--border-light);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .is-size-6.has-text-grey span:first-child {
+      color: var(--text-primary) !important;
       font-weight: 600;
     }
-    
-    /* 5) 全局小留白微调（可选） */
-    .section .title.is-4 { margin-bottom: 0.6rem; }
-    .box.mb-5 { margin-bottom: 2.2rem !important; }
+
+    /* Video section - minimal */
+    .video-section {
+      background: var(--border-light);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .video-section .title {
+      color: var(--text-primary) !important;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .video-container {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .columns video {
+      border-radius: var(--radius) !important;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Abstract section */
+    .content.is-size-6 {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .content.is-size-6 p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+
+    /* Clean notification */
+    .notification.is-success.is-light {
+      background: #ffffff !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-lg) !important;
+      box-shadow: var(--shadow-sm) !important;
+      font-weight: 500;
+      border-left: 4px solid var(--accent-color) !important;
+    }
+
+    /* BibTeX section - minimal dark */
+    #BibTeX {
+      background: var(--text-primary);
+      color: white;
+      border-radius: var(--radius-lg);
+      margin-top: 3rem;
+    }
+
+    #BibTeX .title {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    #BibTeX pre {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    #BibTeX code {
+      color: #e5e7eb !important;
+      font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+      font-size: 0.9rem;
+    }
+
+    /* Footer - minimal */
+    .footer {
+      background: #f9fafb !important;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+      box-shadow: none;
+    }
+
+    .footer a {
+      color: var(--text-secondary) !important;
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--primary-color) !important;
+    }
+
+    .footer .icon-link {
+      color: var(--text-muted) !important;
+      font-size: 1.25rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer .icon-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    /* Section titles - clean */
+    .title.is-3, .title.is-4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem !important;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id] {
+      scroll-margin-top: 4rem;
+    }
+
+    /* Clean navbar end alignment */
+    .navbar-end {
+      align-items: center;
+    }
+
+    .navbar-end .navbar-item {
+      margin: 0 0.25rem;
+      border-radius: var(--radius);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .publication-title {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
+      }
+      
+      .inst-logos {
+        gap: 1rem;
+      }
+      
+      .inst-logos img {
+        height: 40px;
+      }
+      
+      body {
+        padding-top: 3rem;
+      }
+
+      .navbar-menu {
+        box-shadow: var(--shadow-md);
+        background: white !important;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .navbar-end {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .navbar-end .navbar-item {
+        margin: 0;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .navbar-end .navbar-item:last-child {
+        border-bottom: none;
+      }
+
+      .conference-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+        padding: 1rem;
+      }
+
+      .conference-logo {
+        height: 48px;
+      }
+
+      .conference-text {
+        text-align: center;
+      }
+
+      .conference-name {
+        font-size: 1rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .publication-title {
+        font-size: 1.5rem !important;
+      }
+      
+      .publication-authors {
+        font-size: 0.9rem !important;
+      }
+      
+      .button {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 0.75rem !important;
+      }
+      
+      .video-section, .content.is-size-6 {
+        padding: 1.5rem;
+      }
+      
+      .inst-logos img {
+        height: 36px;
+      }
+
+      .conference-badge {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .conference-logo {
+        height: 44px;
+      }
+
+      .conference-text {
+        text-align: center;
+      }
+
+      .conference-status {
+        font-size: 0.8rem;
+      }
+
+      .conference-name {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    /* Minimal animations */
+    .columns figure.image {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .columns figure.image:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Clean typography */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-primary);
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
 
   </style>
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+    <a class="navbar-item" href="#" style="font-weight: bold;">
+      <img src="./static/images/icon.png" style="height: 28px; margin-right: 0.5rem;">
+      PhysRig
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://haoz19.github.io/">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" href="https://arxiv.org/pdf/2506.20936" target="_blank">
+        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+        <span>Paper</span>
       </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://magicpose4d.github.io/">
-            MagicPose4D
-          </a>
-        </div>
-      </div>
+      <a class="navbar-item" href="https://github.com/haoz19/PhysRig" target="_blank">
+        <span class="icon"><i class="fab fa-github"></i></span>
+        <span>Code</span>
+      </a>
+      <a class="navbar-item" href="https://haoz19.github.io/" target="_blank">
+        <span class="icon"><i class="fas fa-user"></i></span>
+        <span>Author</span>
+      </a>
     </div>
-
   </div>
 </nav>
 
@@ -209,21 +671,31 @@
             <span class="author-block"><sup>2</sup>Stability AI</span>
           </div>
 
-          <!-- ✅ Institution icons -->
-          <div class="inst-logos">
-            <a href="https://illinois.edu" target="_blank" rel="noopener" aria-label="UIUC">
-              <img class="illinois-bg" src="./static/images/illinois_primary_wordmark_reversed_orange.svg" alt="University of Illinois Urbana-Champaign">
-            </a>
-            <a href="https://stability.ai" target="_blank" rel="noopener" aria-label="Stability AI">
-              <img src="./static/images/stability_logo.jpg" alt="Stability AI">
-            </a>
+          <!-- ✨ Enhanced Institution icons -->
+          <div class="affiliation-wrap">
+            <div class="inst-logos">
+              <a href="https://illinois.edu" target="_blank" rel="noopener" aria-label="UIUC">
+                <img class="illinois-bg" src="./static/images/illinois_primary_wordmark_reversed_orange.svg" alt="University of Illinois Urbana-Champaign">
+              </a>
+              <a href="https://stability.ai" target="_blank" rel="noopener" aria-label="Stability AI">
+                <img src="./static/images/stability_logo.jpg" alt="Stability AI">
+              </a>
+            </div>
           </div>
           
           <p class="has-text-centered is-size-6 mt-2"><sup>*</sup>Equal contribution</p>
 
-          <p class="has-text-centered has-text-weight-semibold is-size-5 mt-2">
-            Accepted to <strong>International Conference on Computer Vision (ICCV) 2025</strong>
-          </p>
+          <div class="has-text-centered mt-3">
+            <a href="https://iccv.thecvf.com/virtual/2025/poster/114" target="_blank" rel="noopener" class="conference-badge-link">
+              <div class="conference-badge">
+                <img src="./static/images/iccv-navbar-logo.svg" alt="ICCV Logo" class="conference-logo">
+                <div class="conference-text">
+                  <div class="conference-status">Accepted to</div>
+                  <div class="conference-name">International Conference on Computer Vision (ICCV) 2025</div>
+                </div>
+              </div>
+            </a>
+          </div>
 
 
           <div class="column has-text-centered">
@@ -302,7 +774,7 @@
     <!-- 🦖 Teaser Image -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <figure class="image" style="margin: 0;">
+        <figure class="image teaser-figure" style="margin: 0;">
           <img src="./static/videos/fig1.png" alt="Teaser Image" style="width: 100%; height: auto; margin-bottom: 0.2rem;">
         </figure>
         <p class="is-size-6 has-text-grey" style="margin-top: 0rem; line-height: 1.4; max-width: 90%; margin-left: auto; margin-right: auto;">
@@ -312,7 +784,7 @@
       </div>
     </div>
 
-    <div class="container is-max-desktop">
+    <div class="container is-max-desktop" id="abstract">
       <h2 class="title is-3 has-text-centered">Abstract</h2>
       <div class="content is-size-6">
         <p>
@@ -341,16 +813,21 @@
   </div>
 
 
-    <!-- Demo Video -->
+    <!-- Demo Video Section -->
     <div class="columns is-centered has-text-centered mt-6">
       <div class="column is-four-fifths">
-        <h2 class="title is-4">
-          ▶️ Watch <span class="has-text-link has-text-weight-semibold">PhysRig</span> in Action
-        </h2>
-        <video controls autoplay muted loop playsinline 
-               style="max-width: 960px; width: 100%; height: auto; border-radius: 8px;">
-          <source src="./static/videos/PhysRig.mp4" type="video/mp4">
-        </video>
+        <div class="video-section">
+          <h2 class="title is-4">
+            PhysRig Demo
+          </h2>
+          <div class="video-container">
+            <video controls autoplay muted loop playsinline 
+                   style="max-width: 100%; width: 100%; height: auto;">
+              <source src="./static/videos/PhysRig.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -358,7 +835,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="results">
   <div class="container is-max-desktop">
     <!-- Figure 2 -->
     <div class="columns is-centered has-text-centered mt-5">
