@@ -21,12 +21,48 @@ function setInterpolationImage(i) {
 
 
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
+    // Clean navbar burger functionality
     $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
+      const target = $(this).data('target');
+      $(this).toggleClass("is-active");
+      $("#" + target).toggleClass("is-active");
+    });
 
+    // Close mobile menu when clicking on external links
+    $(".navbar-menu .navbar-item[target='_blank']").click(function() {
+      $(".navbar-burger").removeClass("is-active");
+      $("#navbarMenu").removeClass("is-active");
+    });
+
+    // Close mobile menu when clicking outside
+    $(document).click(function(event) {
+      if (!$(event.target).closest('.navbar').length) {
+        $(".navbar-burger").removeClass("is-active");
+        $("#navbarMenu").removeClass("is-active");
+      }
+    });
+
+    // Simple scroll animations for figures
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -20px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Simple fade-in for figures
+    document.querySelectorAll('figure.image').forEach(fig => {
+      fig.style.opacity = '0';
+      fig.style.transform = 'translateY(20px)';
+      fig.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(fig);
     });
 
     var options = {
